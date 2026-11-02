@@ -1,0 +1,1073 @@
+%=SNX 2.02 GFZ 26:115:63180 GFZ 84:289:64818 84:290:65440 R 00050 2 S E C 
+*
+* -----------------------------------------------------------------------------
+*
++FILE/REFERENCE
+ DESCRIPTION        GFZ Potsdam
+ OUTPUT             Single session VLBI analysis output of PORT
+ CONTACT            Robert Heinkelmann <rob@gfz.de>
+ SOFTWARE           PORT version 27cfd9b3af7be01b, 2026-04-25
+ HARDWARE           Intel(R) Xeon(R) Gold 5222 CPU @ 3.80GHz
+ INPUT              VLBI experiment 19841015-ia209 format vgosDB version 22
+                    19841015-ia209_iGFZ_kPORT2025d_v000_bIonoFree.wrp
+-FILE/REFERENCE
+*
+* -----------------------------------------------------------------------------
+*
++FILE/METADATA
+ FILENAME           19841015-ia209_iGFZ_kPORT2025d_v000_bIonoFree.snx
+ TITLE              GFZ VLBI normal equation for  EOP, TRF, and CRF
+ ALTERNATIVE        GFZ VLBI normal equation
+ ABSTRACT            SINEX file of GFZ VLBI normal equation for IVS EOP
+                    station, and source coordinates (single technique
+                    combination).  Standards, models and parameterization are
+                    choosen with respect to the IERS and IVS conventions.
+ IDENTIFIER         gfz2025d
+ STATUS             completed
+ LANGUAGE           en
+ CHARSET            utf-8
+ DATE               2026-04-25 19:32:60
+ DATETYPE           creation
+ FORMATNAME         SINEX
+ FORMATVERSION      2.02
+ MEDIUMNAME         onLine
+ LINKAGE            
+ SUPPLEMENTALINFO   This file contains the normal equation matrix of the GFZ
+                    least-squares solution of a VLBI-session from the IVS data
+                    center. Only DB version 4 or higher are analyzed. The
+                    provided solution is always based on the available highest
+                    version of the input database.
+                    Parameters:
+                    a. source positions
+                    b. station positions
+                    c. Earth orientation: pole coordinates, UT1-UTC, dX, and dY
+                       as piece-wise-linear continuous functions
+                    d. Zenith troposphere (per station): parameterized to be
+                       values of a piece-wise-linear continuous function with a
+                       temporal resolution of 30 min, relative constrained
+                       with 11 mm/sqrt(30 min) parameters are reduced (only
+                       implicitly included).
+                    e. Troposphere gradient: parameterized to be values of
+                       a piece-wise-linear continuous function with a temporal
+                       resolution of 4 hours, relative constrained with
+                       2 mm/sqrt(4h),
+                       parameters are reduced (only implicitly included).
+                    f. Clock model (per station w.r.t. reference station):
+                       coefficients of a parabola, for each modeled clock break
+                       one more parabola; as well as a piece-wise-linear
+                       continuous function with a temporal resolution of
+                       30 min, relative constrained with 10 mm/sqrt(30 min)
+                       parameters are reduced (only implicitly included).
+                    g. This SINEX file contains the two (non-standard) blocks 
+                       SOLUTION/NORMAL_CALIBRATION LOADING_EFFECT and 
+                       SOLUTION/CALIBRATION_ESTIMATE LOADING_EFFECT to allow the
+                       retroactive removal of non-tidal atmospheric loading
+                       corrections. Note that the apriori values listed in block
+                       SOLUTION/APRIORI do include the non-tidal atmospheric
+                       loading corrections. For details see: 
+                         https://ivscc.gsfc.nasa.gov/IVS_AC/ITRF2020/
+                         Pressure_loading_in_sinex_v2020Jan14.pdf
+ TOPICCATEGORY      geoscientificInformation
+ THESAURUSNAME      GCMD Keywords
+ THESAURUSDATE      2008-02-07 17:44:52
+ THESAURUSLINKAGE   http://gcmd.gsfc.nasa.gov/Resources/valids/archives/
+                    keyword_list.html
+ THESAURUSORGNAME   NASA Goddard Space Flight Center
+                    Solid Earth > Geodetics/Gravity > Polar Motion,
+                    Solid Earth > Geodetics/Gravity > Reference Systems,
+                    Solid Earth > Geodetics/Gravity > Rotational Variations,
+                    VLBI > Very Long Baseline Interferometry
+ FEES               None
+ USECONSTRAINTS     restricted
+ USELIMITATION      * if this normal equation shall be used to compute a
+                      VLBI-only single session solution, not all parameters set
+                      up in this normal equation can be estimated:
+                      + to estimate station positions a datum has to be added
+                      (e.g., NNR+NNT datum)
+ DATAQUALITY        Input data:   VLBI experiment 19841015-ia209
+                    Input format: vgosDB
+                    Software:     PORT version 27cfd9b3af7be01b, 2026-04-25
+                    MATLAB:       24.1.0.2578822 (R2024a) Update 2
+                    python:       Unknown
+                    numpy scipy:  Unknown
+                    OS:
+                      Linux version 6.4.0-150600.23.87-default
+                    OS Vendor:    kg84
+                    Hardware:     Intel(R) Xeon(R) Gold 5222 CPU @ 3.80GHz
+                    username:     gfzvlbi
+ REFSYSNAME         ITRF2020-U2024
+                    ICRF3
+ GEOIDENTIFIER      world
+ WESTBL             -180.0
+ EASTBL             +180.0
+ NORTHBL            +90.0
+ SOUTHBL            -90.0
+ BEGIN              1984-10-15 18:00:18
+ END                1984-10-16 18:10:40
+ INDIVIDUALNAME     Robert Heinkelmann
+ ORGANISATIONNAME   GFZ Helmholtz Centre for Geosciences
+ ROLE               originator
+ PHONE              0 123 456 789
+ FAX                0 123 456 789
+ DELIVERYPOINT      Telegrafenberg
+                    Telegrafenberg
+                    Telegrafenberg
+ CITY               Potsdam
+ ADMINISTRATIVEAREA Brandenburg
+ POSTALCODE         14473
+ COUNTRY            Germany
+ EMAIL              rob@gfz.de
+ CONTACTLINKAGEM    https://www.gfz.de
+ DSTANDARDNAME      ISO 19115
+ MDSTANDARDVERSION  2003
+-FILE/METADATA
+*
+* -----------------------------------------------------------------------------
+*
++FILE/COMMENT
+ Analysis description - template by Axel Nothnagel
+ Version 2.0 (2011-05-26)
+ (https://www.ccivs.bkg.bund.de/index.php?uri=bid)
+ (see also ftp://ivscc.gsfc.nasa.gov/pub/forms/opac-form.txt)
+ 1. Origin of input data
+     d) other use vgosDB file content version 022
+ 2. Authentic processing steps after data retrieval
+     c) other (Ambiguity resolution taken from vgosDB dataset.
+        All other model calculations and analysis steps are performed
+        using the PORT analysis software package.)
+ 3. Origin of meteorological data
+     pressure:  c) other use vgosDB file content
+     temperature:  c) other use vgosDB file content
+ 4. Use numerical weather model
+     a) none
+ 5. Setting of mapping functions
+     b) other (created by PORT)
+ 6. Origin of cable cal data
+     c) other use vgosDB file content
+ 7. Application of cable cal flags
+     a) all on by default (data from input dataset are used as is)
+ 8. Selection/settings of geophysical models
+ 8.1 A priori Earth orientation
+     - A priori precession/nutation model: IAU_2006/2000A
+     - A priori EOP: eopc04_20u23.1962-now
+       using standard nutation offsets dX and dY
+     - A priori short-period tidal variations in polar motion and UT1:
+     - ocean tides: desai_model_jgrb51665
+       libration in polar motion ON
+       libration in UT1 ON
+     - EOP interpolation: linear
+ 8.2 A priori geophysical models
+     - Solid Earth tides: IERS2010
+     - Tidal ocean loading: FES2004
+     - Tidal atmosphere loading: gsfc
+     - Non-tidal atmosphere loading: GFZ_NTAL
+     - Non-tidal oceanic loading: None
+     - Non-tidal sea-level loading: None
+     - Pole tide: linear IERS20180201
+     - Hydrology loading: None
+     - Antenna thermal deformation: IVS antenna thermal expansion model of
+       Nothnagel (2008) using scan-wise temperatures from vgosDB data
+     - Axis offsets: taken from Axel Nothnagel's file
+       antenna-info.txt
+ 8.3 Others
+     - A priori TRF: ITRF2020-u2024
+     - A priori CRF: icrf3
+     - A priori troposphere gradients: apg
+     - Mapping functions: VM1
+ 9. Parameterization
+ Information about constraints refer only to the SOLUTION/ESTIMATE block and
+ pre-reduced parameters. The SOLUTION/NORMAL_EQUATION_MATRIX block is without
+ constraints.
+ 9.1 Clocks
+     b) other (piece-wise linear offsets + one rate
+        + one squared rate per station
+        with 30 min interval and constraints 1.0 cm after 30 min
+ 9.2 Atmospheres
+     b) other: piece-wise linear function:
+        zenith wet delay: 30 min offsets with rel. constr. 1.1 cm after 30 min
+        troposphere horizontal gradients:
+        240 min offsets, rel. constr. 0.2 cm / 240 min
+ 10. Outlier elimination
+     c) observations with QualityCode from input dataset lower than
+        1 0
+        for the frequency-ordered bands were flagged
+        + residuals larger than 5.0*aposteriori variance of unit weight
+        + obvious outliers manually removed
+ 11. Handling of source positions
+     c) Estimate all sources, applying NNR relative to ICRF3
+ 12. Generation of pre-reduced datum-free normal equations
+     b) Program is based on authentic classical least squares adjustment and
+        matrix elements of interest are squeezed out by inversion steps.
+        vT*P*v = lT*P*l_red - xT*b
+        lT*P*l_red = lT*P*l - b2T*inv(N22)*b2
+ 13.
+     - Cut-off elevation angle:  0.0 degree
+ <PORT-AUXILIARY-INFO-BEGIN>
+ number of estimated parameters                 : 464
+ total number of observations                   : 836
+ number of real observations used in adjustment : 428
+ number of observations read from vgosDB/NGS    : 469
+ weighted root mean square [cm]                 : 1.1861e+00
+ weighted root mean square [ps]                 : 3.9563e+01
+ chi squared                                    : 1.4178e+00
+ Helmert trafo., scale factor offset [ppb]      : NaN
+ Helmert trafo., translation (x) [mm]           : NaN
+ Helmert trafo., translation (y) [mm]           : NaN
+ Helmert trafo., translation (z) [mm]           : NaN
+ Helmert trafo., rotation (roll) [nrad]         : NaN
+ Helmert trafo., rotation (pitch) [nrad]        : NaN
+ Helmert trafo., rotation (yaw) [nrad]          : NaN
+ antenna code to station name                   : 7216  HRAS_085
+ antenna code to station name                   : 7209  WESTFORD
+ antenna code to station name                   : 7219  RICHMOND
+ antenna code to station name                   : 7224  WETTZELL
+ data format level 2 input                      : vgosDB
+ <PORT-AUXILIARY-INFO-END>
+ <PORT-AUXILIARY-INFO-ANTENNA-TRF-BEGIN>
+ HRAS_085 : ITRF2020-U2024
+ WESTFORD : ITRF2020-U2024
+ RICHMOND : ITRF2020-U2024
+ WETTZELL : ITRF2020-U2024
+ <PORT-AUXILIARY-INFO-ANTENNA-TRF-END>
+ <PORT-AUXILIARY-INFO-ANTENNA-IN-DATUM-BEGIN>
+ HRAS_085 : 1
+ WESTFORD : 1
+ RICHMOND : 1
+ WETTZELL : 1
+ <PORT-AUXILIARY-INFO-ANTENNA-IN-DATUM-END>
+ <PORT-AUXILIARY-INFO-RADIO-SOURCES-CRF-BEGIN>
+ 1641+399 : ICRF3-S/X
+ 1404+286 : ICRF3-S/X
+ 0212+735 : ICRF3-S/X
+ 1803+784 : ICRF3-S/X
+ 2200+420 : ICRF3-S/X
+ 0923+392 : ICRF3-S/X
+ 1226+023 : ICRF3-S/X
+ 1253-055 : ICRF3-S/X
+ 2251+158 : ICRF3-S/X
+ 2134+004 : ICRF3-S/X
+ 0106+013 : ICRF3-S/X
+ 0229+131 : ICRF3-S/X
+ 0552+398 : ICRF3-S/X
+ 0528+134 : ICRF3-S/X
+ 0851+202 : ICRF3-S/X
+ <PORT-AUXILIARY-INFO-RADIO-SOURCES-CRF-END>
+ <PORT-AUXILIARY-INFO-INPUT-FILES-BEGIN>
+ level 2 input data format               : vgosDB
+ level 2 input data file name            : 19841015-ia209.tgz
+ level 2 input data file size in bytes   : 780565
+ level 2 input data file time            : 2025-11-05T15:47:51Z
+ level 2 input data file MD5 hash        : 03a482e67a25734b7a60c3810cec9e7e
+ <PORT-AUXILIARY-INFO-INPUT-FILES-END>
+ <PORT-GENERAL-COMMENT-BEGIN>
+ <PORT-GENERAL-COMMENT-END>
+-FILE/COMMENT
+*
+* -----------------------------------------------------------------------------
+*
++NUTATION/DATA
+ IAU_2006/2000A Standard model used
+-NUTATION/DATA
+*
+* -----------------------------------------------------------------------------
+*
++PRECESSION/DATA
+ IAU_2006/2000A Standard model used
+-PRECESSION/DATA
+*
+* -----------------------------------------------------------------------------
+*
++SOURCE/ID
+*Code IERS_nam ICRF_designator_ IVS_name NumObs
+ 0001 1641+399 J164258.8+394836 3C345        33
+ 0002 1404+286 J140700.3+282714 OQ208        27
+ 0003 0212+735 J021730.8+734932 0212+735     35
+ 0004 1803+784 J180045.6+782804 1803+784     23
+ 0005 2200+420 J220243.2+421639 VR422201     25
+ 0006 0923+392 J092703.0+390220 4C39.25      21
+ 0007 1226+023 J122906.6+020308 3C273B       28
+ 0008 1253-055 J125611.1-054721 3C279        27
+ 0009 2251+158 J225357.7+160853 3C454.3      29
+ 0010 2134+004 J213638.5+004154 2134+00      33
+ 0011 0106+013 J010838.7+013500 0106+013     18
+ 0012 0229+131 J023145.8+132254 0229+131     25
+ 0013 0552+398 J055530.8+394849 0552+398     32
+ 0014 0528+134 J053056.4+133155 0528+134     31
+ 0015 0851+202 J085448.8+200630 OJ287        41
+-SOURCE/ID
+*
+* -----------------------------------------------------------------------------
+*
++SITE/ID
+*CODE PT DOMES____ T STATION_DESCRIPTION___ APPROX_LON_ APPROX_LAT_ APP_H__
+ 7216  A 40442S003 R HRAS at Fort Davis, TX 256 03 09.8  30 38 12.2  1595.5
+ 7209  A 40440S003 R Westford, MA, USA      288 30 22.3  42 36 46.6    87.2
+ 7219  A 40499S001 R Richmond, FL, USA      279 36 55.0  25 36 49.5   -13.3
+ 7224  A 14201S004 R Wettzell, Germany       12 52 38.8  49 08 42.0   669.6
+-SITE/ID
+*
+* -----------------------------------------------------------------------------
+*
++SITE/ECCENTRICITY
+*Code PT SBIN T Data_Start__ Data_End____ typ Up/X____ North/Y_ East/Z__
+ 7216  A    1 R 84:289:64818 84:290:65440 XYZ   0.0000   0.0000   0.0000
+ 7209  A    1 R 84:289:64818 84:290:64758 XYZ   0.0000   0.0000   0.0000
+ 7219  A    1 R 84:289:65648 84:290:65440 XYZ   0.0000   0.0000   0.0000
+ 7224  A    1 R 84:289:65648 84:290:64758 XYZ   0.0000   0.0000   0.0000
+-SITE/ECCENTRICITY
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/EPOCHS
+*Code PT SOLN T Data_start__ Data_end____ Mean_epoch__
+ 7216  A    1 R 84:289:64818 84:290:65440 84:290:21929
+ 7209  A    1 R 84:289:64818 84:290:64758 84:290:21588
+ 7219  A    1 R 84:289:65648 84:290:65440 84:290:22344
+ 7224  A    1 R 84:289:65648 84:290:64758 84:290:22003
+-SOLUTION/EPOCHS
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/STATISTICS
+* Units for squares: cm^2
+* Units for WRMS: s
+*Information_type______________ Value_________________
+ NUMBER OF OBSERVATIONS                            428
+ NUMBER OF UNKNOWNS                                464
+ SQUARE SUM OF RESIDUALS (VTPV)  5.103910635772918E+02
+ VARIANCE FACTOR                 1.417752954381366E+00
+ WEIGHTED SQUARE SUM OF O-C      6.053641151597258E+02
+*WRMS OF POSTFIT RESIDUALS       3.956329545122127E-11
+-SOLUTION/STATISTICS
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/ESTIMATE
+*Index Type__ Code Pt Soln Ref_Epoch___ Unit S Estimated_Value______ Std_Dev____
+     1 STAX   7216  A    1 84:290:21929 m    1 -1.32421090312954e+06 2.03295e-02
+     2 STAY   7216  A    1 84:290:21929 m    1 -5.33202323352413e+06 4.71062e-02
+     3 STAZ   7216  A    1 84:290:21929 m    1  3.23211841758277e+06 1.30163e-02
+     4 STAX   7209  A    1 84:290:21929 m    1  1.49220676968772e+06 1.44290e-02
+     5 STAY   7209  A    1 84:290:21929 m    1 -4.45813046205876e+06 2.62277e-02
+     6 STAZ   7209  A    1 84:290:21929 m    1  4.29601546462526e+06 2.70972e-02
+     7 STAX   7219  A    1 84:290:21929 m    1  9.61258163569260e+05 1.18966e-02
+     8 STAY   7219  A    1 84:290:21929 m    1 -5.67409008220642e+06 2.55338e-02
+     9 STAZ   7219  A    1 84:290:21929 m    1  2.74053374765718e+06 2.21621e-02
+    10 STAX   7224  A    1 84:290:21929 m    1  4.07554016058623e+06 4.01378e-02
+    11 STAY   7224  A    1 84:290:21929 m    1  9.31735133297900e+05 4.06340e-02
+    12 STAZ   7224  A    1 84:290:21929 m    1  4.80162929337035e+06 2.40498e-02
+    13 XPO    ---- --    1 84:290:24238 mas  0  2.87597535472327e+02 2.00585e+00
+    14 XPOR   ---- --    1 84:290:24238 masD 0 -1.36546958000029e+00 1.18218e-04
+    15 YPO    ---- --    1 84:290:24238 mas  0  1.84554239491289e+02 3.34918e+00
+    16 YPOR   ---- --    1 84:290:24238 masD 0 -3.33267615488601e+00 1.18218e-04
+    17 UT     ---- --    1 84:290:24238 ms   0 -3.23858938582961e+01 1.47414e-01
+    18 LOD    ---- --    1 84:290:24238 ms   0  1.24208912094743e+00 7.88122e-06
+    19 NUT_X  ---- --    1 84:290:24238 mas  0  1.91754323433100e-01 5.90385e-01
+    20 NUT_Y  ---- --    1 84:290:24238 mas  0  5.48960825674784e-01 7.10001e-01
+    21 RS_RA  0001 --    1 84:290:21929 rad  2  4.37632656139346e+00 3.22635e-09
+    22 RS_DE  0001 --    1 84:290:21929 rad  2  6.94820411750758e-01 8.71713e-09
+    23 RS_RA  0002 --    1 84:290:21929 rad  2  3.69576337673387e+00 3.31222e-09
+    24 RS_DE  0002 --    1 84:290:21929 rad  2  4.96617417582841e-01 1.11883e-08
+    25 RS_RA  0003 --    1 84:290:21929 rad  2  6.00016077276683e-01 7.01512e-09
+    26 RS_DE  0003 --    1 84:290:21929 rad  2  1.28850202635505e+00 3.02317e-09
+    27 RS_RA  0004 --    1 84:290:21929 rad  2  4.71571119694435e+00 5.96580e-09
+    28 RS_DE  0004 --    1 84:290:21929 rad  2  1.36952117469930e+00 2.92011e-09
+    29 RS_RA  0005 --    1 84:290:21929 rad  2  5.77146142201954e+00 3.30126e-09
+    30 RS_DE  0005 --    1 84:290:21929 rad  2  7.37886339129095e-01 7.48971e-09
+    31 RS_RA  0006 --    1 84:290:21929 rad  2  2.47422338454531e+00 4.03288e-09
+    32 RS_DE  0006 --    1 84:290:21929 rad  2  6.81361294714376e-01 7.61345e-09
+    33 RS_RA  0007 --    1 84:290:21929 rad  2  3.26861624822325e+00 5.64382e-09
+    34 RS_DE  0007 --    1 84:290:21929 rad  2  3.58209913130049e-02 2.13007e-08
+    35 RS_RA  0008 --    1 84:290:21929 rad  2  3.38675080911228e+00 7.36975e-09
+    36 RS_DE  0008 --    1 84:290:21929 rad  2 -1.01042486919306e-01 2.60181e-08
+    37 RS_RA  0009 --    1 84:290:21929 rad  2  5.99504221103373e+00 4.14804e-09
+    38 RS_DE  0009 --    1 84:290:21929 rad  2  2.81839485307321e-01 1.47571e-08
+    39 RS_RA  0010 --    1 84:290:21929 rad  2  5.65767286086058e+00 6.28083e-09
+    40 RS_DE  0010 --    1 84:290:21929 rad  2  1.21893009076380e-02 2.20172e-08
+    41 RS_RA  0011 --    1 84:290:21929 rad  2  2.99525488411416e-01 5.75629e-09
+    42 RS_DE  0011 --    1 84:290:21929 rad  2  2.76359653265367e-02 2.18876e-08
+    43 RS_RA  0012 --    1 84:290:21929 rad  2  6.62199306600521e-01 3.79960e-09
+    44 RS_DE  0012 --    1 84:290:21929 rad  2  2.33557652883963e-01 1.61389e-08
+    45 RS_RA  0013 --    1 84:290:21929 rad  2  1.55121995574040e+00 3.70031e-09
+    46 RS_DE  0013 --    1 84:290:21929 rad  2  6.94879416252455e-01 7.33927e-09
+    47 RS_RA  0014 --    1 84:290:21929 rad  2  1.44399937345669e+00 3.56621e-09
+    48 RS_DE  0014 --    1 84:290:21929 rad  2  2.36177749417645e-01 1.56722e-08
+    49 RS_RA  0015 --    1 84:290:21929 rad  2  2.33356883511693e+00 2.47656e-09
+    50 RS_DE  0015 --    1 84:290:21929 rad  2  3.50959762482244e-01 1.28043e-08
+-SOLUTION/ESTIMATE
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/CALIBRATION_ESTIMATE LOADING_EFFECT
+*Index Type__ Code Pt Soln Ref_Epoch___ Unit S Estimated_Value______ Std_Dev____
+     1 STAX   7216  A    1 84:290:21929 m    1 -9.83917387202382e-04 0.00000e+00
+     2 STAY   7216  A    1 84:290:21929 m    1 -1.34942494332790e-03 0.00000e+00
+     3 STAZ   7216  A    1 84:290:21929 m    1  5.12432772666216e-04 0.00000e+00
+     4 STAX   7209  A    1 84:290:21929 m    1  2.54679005593061e-04 0.00000e+00
+     5 STAY   7209  A    1 84:290:21929 m    1  1.60073023289442e-03 0.00000e+00
+     6 STAZ   7209  A    1 84:290:21929 m    1  1.84532254934311e-05 0.00000e+00
+     7 STAX   7219  A    1 84:290:21929 m    1  7.46033736504614e-04 0.00000e+00
+     8 STAY   7219  A    1 84:290:21929 m    1  6.28255307674408e-04 0.00000e+00
+     9 STAZ   7219  A    1 84:290:21929 m    1 -3.79459001123905e-04 0.00000e+00
+    10 STAX   7224  A    1 84:290:21929 m    1 -1.67954713106155e-05 0.00000e+00
+    11 STAY   7224  A    1 84:290:21929 m    1 -8.79559665918350e-04 0.00000e+00
+    12 STAZ   7224  A    1 84:290:21929 m    1 -1.51427462697029e-04 0.00000e+00
+    13 XPO    ---- --    1 84:290:24238 mas  0 -7.32461743216390e-02 0.00000e+00
+    14 XPOR   ---- --    1 84:290:24238 masD 0  2.03970174084134e-12 0.00000e+00
+    15 YPO    ---- --    1 84:290:24238 mas  0  3.95740712380643e-02 0.00000e+00
+    16 YPOR   ---- --    1 84:290:24238 masD 0  4.62243576748733e-11 0.00000e+00
+    17 UT     ---- --    1 84:290:24238 ms   0  4.31897474911125e-03 0.00000e+00
+    18 LOD    ---- --    1 84:290:24238 ms   0  1.07602815546670e-12 0.00000e+00
+    19 NUT_X  ---- --    1 84:290:24238 mas  0  6.21040934336847e-03 0.00000e+00
+    20 NUT_Y  ---- --    1 84:290:24238 mas  0 -2.98658589523049e-04 0.00000e+00
+    21 RS_RA  0001 --    1 84:290:21929 rad  2 -3.53805873487545e-11 0.00000e+00
+    22 RS_DE  0001 --    1 84:290:21929 rad  2 -3.18086668116280e-11 0.00000e+00
+    23 RS_RA  0002 --    1 84:290:21929 rad  2 -4.54005721906015e-11 0.00000e+00
+    24 RS_DE  0002 --    1 84:290:21929 rad  2 -1.96437865973564e-11 0.00000e+00
+    25 RS_RA  0003 --    1 84:290:21929 rad  2  4.56383819624762e-11 0.00000e+00
+    26 RS_DE  0003 --    1 84:290:21929 rad  2 -4.84989826077253e-12 0.00000e+00
+    27 RS_RA  0004 --    1 84:290:21929 rad  2 -8.26094748163086e-12 0.00000e+00
+    28 RS_DE  0004 --    1 84:290:21929 rad  2  1.17945653244078e-11 0.00000e+00
+    29 RS_RA  0005 --    1 84:290:21929 rad  2 -2.21405116462847e-11 0.00000e+00
+    30 RS_DE  0005 --    1 84:290:21929 rad  2  2.72315503480058e-12 0.00000e+00
+    31 RS_RA  0006 --    1 84:290:21929 rad  2 -3.26170201958575e-11 0.00000e+00
+    32 RS_DE  0006 --    1 84:290:21929 rad  2  4.29234425780578e-11 0.00000e+00
+    33 RS_RA  0007 --    1 84:290:21929 rad  2 -6.88182844044150e-11 0.00000e+00
+    34 RS_DE  0007 --    1 84:290:21929 rad  2  7.65736293817376e-11 0.00000e+00
+    35 RS_RA  0008 --    1 84:290:21929 rad  2 -7.86020137866217e-11 0.00000e+00
+    36 RS_DE  0008 --    1 84:290:21929 rad  2  8.22020507218468e-11 0.00000e+00
+    37 RS_RA  0009 --    1 84:290:21929 rad  2 -4.89190910002435e-11 0.00000e+00
+    38 RS_DE  0009 --    1 84:290:21929 rad  2  2.40515940497232e-11 0.00000e+00
+    39 RS_RA  0010 --    1 84:290:21929 rad  2 -7.68221042335426e-11 0.00000e+00
+    40 RS_DE  0010 --    1 84:290:21929 rad  2  2.35027552974998e-11 0.00000e+00
+    41 RS_RA  0011 --    1 84:290:21929 rad  2 -4.64916993792031e-11 0.00000e+00
+    42 RS_DE  0011 --    1 84:290:21929 rad  2  4.78603649767262e-11 0.00000e+00
+    43 RS_RA  0012 --    1 84:290:21929 rad  2 -2.79111178613789e-11 0.00000e+00
+    44 RS_DE  0012 --    1 84:290:21929 rad  2  3.79032638608834e-11 0.00000e+00
+    45 RS_RA  0013 --    1 84:290:21929 rad  2 -5.25313126331639e-12 0.00000e+00
+    46 RS_DE  0013 --    1 84:290:21929 rad  2  1.54912749295022e-11 0.00000e+00
+    47 RS_RA  0014 --    1 84:290:21929 rad  2 -2.33433272711636e-11 0.00000e+00
+    48 RS_DE  0014 --    1 84:290:21929 rad  2  5.47402123629581e-11 0.00000e+00
+    49 RS_RA  0015 --    1 84:290:21929 rad  2 -2.92748048025260e-11 0.00000e+00
+    50 RS_DE  0015 --    1 84:290:21929 rad  2  4.95007368428446e-11 0.00000e+00
+-SOLUTION/CALIBRATION_ESTIMATE
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/APRIORI
+*Index Type__ CODE PT Soln Ref_epoch___ Unit S Apriori_value________ Std_Dev____
+     1 STAX   7216  A    1 84:290:21929 m    2 -1.32421084272752e+06 0.00000e+00
+     2 STAY   7216  A    1 84:290:21929 m    2 -5.33202314599875e+06 0.00000e+00
+     3 STAZ   7216  A    1 84:290:21929 m    2  3.23211841104976e+06 0.00000e+00
+     4 STAX   7209  A    1 84:290:21929 m    2  1.49220677985123e+06 0.00000e+00
+     5 STAY   7209  A    1 84:290:21929 m    2 -4.45813050026837e+06 0.00000e+00
+     6 STAZ   7209  A    1 84:290:21929 m    2  4.29601548861417e+06 0.00000e+00
+     7 STAX   7219  A    1 84:290:21929 m    2  9.61258174045162e+05 0.00000e+00
+     8 STAY   7219  A    1 84:290:21929 m    2 -5.67409004956651e+06 0.00000e+00
+     9 STAZ   7219  A    1 84:290:21929 m    2  2.74053377820215e+06 0.00000e+00
+    10 STAX   7224  A    1 84:290:21929 m    2  4.07554007954479e+06 0.00000e+00
+    11 STAY   7224  A    1 84:290:21929 m    2  9.31735051342234e+05 0.00000e+00
+    12 STAZ   7224  A    1 84:290:21929 m    2  4.80162924536947e+06 0.00000e+00
+    13 XPO    ---- --    1 84:290:24238 mas  2  2.87583684233083e+02 0.00000e+00
+    14 XPOR   ---- --    1 84:290:24238 masD 2 -1.36546958256572e+00 0.00000e+00
+    15 YPO    ---- --    1 84:290:24238 mas  2  1.89636803272811e+02 0.00000e+00
+    16 YPOR   ---- --    1 84:290:24238 masD 2 -3.33267615097830e+00 0.00000e+00
+    17 UT     ---- --    1 84:290:24238 ms   2 -3.22991429930434e+01 0.00000e+00
+    18 LOD    ---- --    1 84:290:24238 ms   2  1.24208912162487e+00 0.00000e+00
+    19 NUT_X  ---- --    1 84:290:24238 mas  2  1.44533434277730e-01 0.00000e+00
+    20 NUT_Y  ---- --    1 84:290:24238 mas  2 -2.68258010002104e-01 0.00000e+00
+    21 RS_RA  0001 --    1 84:290:21929 rad  2  4.37632655798331e+00 0.00000e+00
+    22 RS_DE  0001 --    1 84:290:21929 rad  2  6.94820394049736e-01 0.00000e+00
+    23 RS_RA  0002 --    1 84:290:21929 rad  2  3.69576337392037e+00 0.00000e+00
+    24 RS_DE  0002 --    1 84:290:21929 rad  2  4.96617391972277e-01 0.00000e+00
+    25 RS_RA  0003 --    1 84:290:21929 rad  2  6.00016079091981e-01 0.00000e+00
+    26 RS_DE  0003 --    1 84:290:21929 rad  2  1.28850203081720e+00 0.00000e+00
+    27 RS_RA  0004 --    1 84:290:21929 rad  2  4.71571120795452e+00 0.00000e+00
+    28 RS_DE  0004 --    1 84:290:21929 rad  2  1.36952116812548e+00 0.00000e+00
+    29 RS_RA  0005 --    1 84:290:21929 rad  2  5.77146141507021e+00 0.00000e+00
+    30 RS_DE  0005 --    1 84:290:21929 rad  2  7.37886325183226e-01 0.00000e+00
+    31 RS_RA  0006 --    1 84:290:21929 rad  2  2.47422339470859e+00 0.00000e+00
+    32 RS_DE  0006 --    1 84:290:21929 rad  2  6.81361277106760e-01 0.00000e+00
+    33 RS_RA  0007 --    1 84:290:21929 rad  2  3.26861624333934e+00 0.00000e+00
+    34 RS_DE  0007 --    1 84:290:21929 rad  2  3.58209345080846e-02 0.00000e+00
+    35 RS_RA  0008 --    1 84:290:21929 rad  2  3.38675080545174e+00 0.00000e+00
+    36 RS_DE  0008 --    1 84:290:21929 rad  2 -1.01042565283933e-01 0.00000e+00
+    37 RS_RA  0009 --    1 84:290:21929 rad  2  5.99504220618445e+00 0.00000e+00
+    38 RS_DE  0009 --    1 84:290:21929 rad  2  2.81839456464805e-01 0.00000e+00
+    39 RS_RA  0010 --    1 84:290:21929 rad  2  5.65767285300629e+00 0.00000e+00
+    40 RS_DE  0010 --    1 84:290:21929 rad  2  1.21892478990724e-02 0.00000e+00
+    41 RS_RA  0011 --    1 84:290:21929 rad  2  2.99525487191394e-01 0.00000e+00
+    42 RS_DE  0011 --    1 84:290:21929 rad  2  2.76359175766091e-02 0.00000e+00
+    43 RS_RA  0012 --    1 84:290:21929 rad  2  6.62199302576238e-01 0.00000e+00
+    44 RS_DE  0012 --    1 84:290:21929 rad  2  2.33557615383929e-01 0.00000e+00
+    45 RS_RA  0013 --    1 84:290:21929 rad  2  1.55121995862711e+00 0.00000e+00
+    46 RS_DE  0013 --    1 84:290:21929 rad  2  6.94879400786375e-01 0.00000e+00
+    47 RS_RA  0014 --    1 84:290:21929 rad  2  1.44399937454353e+00 0.00000e+00
+    48 RS_DE  0014 --    1 84:290:21929 rad  2  2.36177709397702e-01 0.00000e+00
+    49 RS_RA  0015 --    1 84:290:21929 rad  2  2.33356883659825e+00 0.00000e+00
+    50 RS_DE  0015 --    1 84:290:21929 rad  2  3.50959730557617e-01 0.00000e+00
+-SOLUTION/APRIORI
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/NORMAL_EQUATION_VECTOR
+*Index Type__ Code Pt Soln Ref_Epoch___ Unit S RightHandSideVector_b
+     1 STAX   7216  A    1 84:290:21929    m 2 -8.58401594313716e+02
+     2 STAY   7216  A    1 84:290:21929    m 2  1.65210929377213e+02
+     3 STAZ   7216  A    1 84:290:21929    m 2  1.66174230373201e+02
+     4 STAX   7209  A    1 84:290:21929    m 2  5.48494563638513e+02
+     5 STAY   7209  A    1 84:290:21929    m 2 -8.88545789997011e+01
+     6 STAZ   7209  A    1 84:290:21929    m 2 -3.01942518166132e+02
+     7 STAX   7219  A    1 84:290:21929    m 2  2.78098128632330e+02
+     8 STAY   7219  A    1 84:290:21929    m 2  2.16215671564441e+01
+     9 STAZ   7219  A    1 84:290:21929    m 2  1.78371623476176e+02
+    10 STAX   7224  A    1 84:290:21929    m 2  3.18089020429738e+01
+    11 STAY   7224  A    1 84:290:21929    m 2 -9.79779175339836e+01
+    12 STAZ   7224  A    1 84:290:21929    m 2 -4.26033356835575e+01
+    13 XPO    ---- --    1 84:290:24238  mas 2 -5.67007542930571e+00
+    14 XPOR   ---- --    1 84:290:24238 masD 2 -2.30189958088231e+00
+    15 YPO    ---- --    1 84:290:24238  mas 2  1.61345528784398e+00
+    16 YPOR   ---- --    1 84:290:24238 masD 2  7.96225019104238e-01
+    17 UT     ---- --    1 84:290:24238   ms 2 -9.57698651597457e+01
+    18 LOD    ---- --    1 84:290:24238   ms 2  3.07465401573252e+01
+    19 NUT_X  ---- --    1 84:290:24238  mas 2 -1.44577100056270e+00
+    20 NUT_Y  ---- --    1 84:290:24238  mas 2 -4.83209994349658e+00
+    21 RS_RA  0001 --    1 84:290:21929  rad 2  9.52898322306966e+08
+    22 RS_DE  0001 --    1 84:290:21929  rad 2 -4.20947918912815e+08
+    23 RS_RA  0002 --    1 84:290:21929  rad 2 -7.70071600243831e+07
+    24 RS_DE  0002 --    1 84:290:21929  rad 2  7.92642749841337e+06
+    25 RS_RA  0003 --    1 84:290:21929  rad 2 -2.42108661154675e+08
+    26 RS_DE  0003 --    1 84:290:21929  rad 2 -2.13277569672720e+09
+    27 RS_RA  0004 --    1 84:290:21929  rad 2 -4.77033821587594e+08
+    28 RS_DE  0004 --    1 84:290:21929  rad 2  4.91477778181726e+08
+    29 RS_RA  0005 --    1 84:290:21929  rad 2  5.43214218964350e+08
+    30 RS_DE  0005 --    1 84:290:21929  rad 2  1.55426660841124e+08
+    31 RS_RA  0006 --    1 84:290:21929  rad 2 -9.70510460320942e+08
+    32 RS_DE  0006 --    1 84:290:21929  rad 2 -1.58909320507309e+08
+    33 RS_RA  0007 --    1 84:290:21929  rad 2  2.22867484276247e+09
+    34 RS_DE  0007 --    1 84:290:21929  rad 2  1.18374296705119e+08
+    35 RS_RA  0008 --    1 84:290:21929  rad 2 -1.38628318282398e+09
+    36 RS_DE  0008 --    1 84:290:21929  rad 2  3.12370983732019e+08
+    37 RS_RA  0009 --    1 84:290:21929  rad 2 -2.20254424757456e+09
+    38 RS_DE  0009 --    1 84:290:21929  rad 2 -9.65359971004702e+08
+    39 RS_RA  0010 --    1 84:290:21929  rad 2  1.42699623169153e+09
+    40 RS_DE  0010 --    1 84:290:21929  rad 2  5.42733334789196e+08
+    41 RS_RA  0011 --    1 84:290:21929  rad 2 -1.09101029163940e+09
+    42 RS_DE  0011 --    1 84:290:21929  rad 2 -3.08314085950341e+08
+    43 RS_RA  0012 --    1 84:290:21929  rad 2  2.45578927983194e+09
+    44 RS_DE  0012 --    1 84:290:21929  rad 2  6.18887443117796e+08
+    45 RS_RA  0013 --    1 84:290:21929  rad 2  8.34862733562494e+08
+    46 RS_DE  0013 --    1 84:290:21929  rad 2  2.65193389532594e+07
+    47 RS_RA  0014 --    1 84:290:21929  rad 2 -8.97867132712071e+08
+    48 RS_DE  0014 --    1 84:290:21929  rad 2  3.06765973258002e+08
+    49 RS_RA  0015 --    1 84:290:21929  rad 2  2.13792712344741e+08
+    50 RS_DE  0015 --    1 84:290:21929  rad 2 -4.57707648127862e+08
+-SOLUTION/NORMAL_EQUATION_VECTOR
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/NORMAL_CALIBRATION LOADING_EFFECT
+*Index Value________________
+     1 -4.69619753225516e+01
+     2 -1.92294325033799e+00
+     3 -5.70659051127222e+00
+     4  7.26248979257207e+00
+     5  1.99320582035966e+01
+     6  1.24465479769569e+01
+     7  3.49092030969459e+01
+     8 -1.62416456018946e+00
+     9 -6.76590340447092e-01
+    10  4.79028243319704e+00
+    11 -1.63849503929857e+01
+    12 -6.06336712569657e+00
+    13  1.30105607924520e-02
+    14 -1.41544970530441e-02
+    15  1.12277011889660e-01
+    16  2.22238862358075e-02
+    17 -4.40882612377307e+00
+    18  4.14889720567441e-01
+    19  7.58554825813746e-02
+    20 -1.25004370972687e-01
+    21  2.25676386579045e+07
+    22 -1.27475426146599e+07
+    23  1.75130843157361e+07
+    24  6.43813925223000e+06
+    25  6.34883680516785e+06
+    26  3.83143588153620e+07
+    27  1.79817055336183e+06
+    28  3.38423617051501e+07
+    29  8.28638462743056e+06
+    30  6.53304672158930e+06
+    31  1.14746941475805e+07
+    32  2.11393521742776e+06
+    33  4.38532958065338e+07
+    34 -4.78589467498454e+06
+    35 -4.82678897208395e+07
+    36 -1.93111555100662e+06
+    37  2.29203579885693e+07
+    38  1.12489546139076e+07
+    39 -1.77045961910560e+07
+    40 -3.04827609631252e+06
+    41 -1.09651800270784e+07
+    42  8.51383976668060e+05
+    43  1.46744126949053e+07
+    44 -7.13664064514780e+06
+    45 -2.84208572935438e+06
+    46 -1.00898612963292e+07
+    47 -1.67022521026368e+07
+    48 -8.30269984423298e+06
+    49  7.46696667014167e+06
+    50  7.41248256109041e+06
+-SOLUTION/NORMAL_CALIBRATION
+*
+* -----------------------------------------------------------------------------
+*
++SOLUTION/NORMAL_EQUATION_MATRIX L
+*Row__ Col__ Norm_Equ_Matrix_Value Norm_Equ_Matrix_Valu2 Norm_Equ_Matrix_Valu3
+     1     1   3.4945294928413e+04
+     2     1  -3.5330377988920e+03   3.9967562061852e+03
+     3     1  -1.2288351673855e+03   5.6849079879782e+03   9.9393806247957e+03
+     4     1  -1.0863426291942e+04   3.0883688534481e+03   2.6732251824649e+03
+     4     4   4.5837272375342e+04
+     5     1   7.3729733966212e+02  -3.0209902116983e+03  -3.9773796419301e+03
+     5     4   2.3042191619503e+03   1.3791326662220e+04
+     6     1   2.8186090518970e+03  -3.6790891871315e+03  -5.1572840186686e+03
+     6     4  -1.1132483393028e+04   9.6974639993874e+03   1.4314921397616e+04
+     7     1  -2.3615401281534e+04  -2.7987363894125e+02  -3.2451901593591e+03
+     7     4  -2.6354187139976e+04  -6.5473177099183e+03   1.9030979805960e+03
+     7     7   5.0849909754383e+04
+     8     1  -8.8599907177027e+02  -8.7704926370328e+02  -1.3142692099188e+03
+     8     4  -4.7940163687998e+03  -3.7403879419423e+03  -1.8387927432271e+03
+     8     7   5.8607528671834e+03   4.2860071647377e+03
+     9     1  -2.2598539752730e+03  -1.3896822190589e+03  -3.2768917199951e+03
+     9     4   1.5972898492420e+03  -2.1517751459176e+03  -3.3970223371413e+03
+     9     7   4.5319054116154e+02   2.9967040442153e+03   6.9438245490105e+03
+    10     1  -4.6646735493638e+02   7.2454258438436e+02   1.8008001442806e+03
+    10     4  -8.6196589434250e+03   3.5058012083063e+03   6.4107763605364e+03
+    10     7  -8.8032133287390e+02  -1.8073742661370e+02   2.0937358486947e+02
+    10    10   9.9664476312358e+03
+    11     1   3.6817395310000e+03  -9.8716730780781e+01  -3.9325913612867e+02
+    11     4  -5.9857164659843e+02  -7.0299485085783e+03  -4.1795820690285e+03
+    11     7   9.6643848167624e+02   3.3143004090817e+02   5.4475332076089e+02
+    11    10  -4.0496063660776e+03   6.7972351984509e+03
+    12     1   6.7008009076216e+02  -6.1613658178862e+02  -1.5052048861323e+03
+    12     4   6.8619683613230e+03  -3.5683092115387e+03  -5.7606150418059e+03
+    12     7   8.8890163760183e+02   1.5635790893100e+02  -2.6991049187462e+02
+    12    10  -8.4209500896868e+03   4.0280878843963e+03   7.5357304198128e+03
+    13     1   3.4288551500601e+01  -1.0387307617849e+02  -1.8135764881562e+02
+    13     4  -1.8831641114633e+02  -3.9008410307317e+01   2.0191110363084e+01
+    13     7   3.1809753725263e+02   5.2260089927845e+01   1.4737498193006e+01
+    13    10  -1.6406967760690e+02   9.0621396557970e+01   1.4642904025954e+02
+    13    13   7.2501832821137e+00
+    14     1   2.9102342421488e+01  -1.0117095914957e+01  -7.2317111374391e+00
+    14     4  -3.5287531142636e+01   2.7257625148220e+00   1.7514411462065e+01
+    14     7  -1.5083459040846e-01   3.6629971575601e+00  -4.7377424364223e+00
+    14    10   6.3360233115578e+00   3.7283362425740e+00  -5.5449578882039e+00
+    14    13   1.7493147821858e-01   9.9960954894379e-01
+    15     1  -2.1085577469790e+00   1.7750385318237e+01   4.1750038557813e+01
+    15     4  -1.3981097200495e+02   9.0263199764776e+01   1.3125124429719e+02
+    15     7  -7.4689614398115e+01  -1.8973412591183e+01   2.0008914800066e+01
+    15    10   2.1660914415005e+02  -8.9040172491818e+01  -1.9301019765507e+02
+    15    13  -4.1439919105744e+00   1.2002460144893e-01   5.1716160367416e+00
+    16     1  -7.2472547552101e+00   3.7501798972441e-01  -1.2330189511519e+00
+    16     4   2.8390951029843e+01   8.4031778526263e+00  -6.0962014521151e+00
+    16     7  -1.2339465757394e+01  -1.1078740535238e+00  -4.2069269388654e-01
+    16    10  -8.8042305172436e+00  -7.6703217888323e+00   7.7499130971562e+00
+    16    13   6.1283687889931e-03  -4.8255879228216e-01  -2.2259725843381e-01
+    16    16   5.9112788656472e-01
+    17     1   1.7697494819481e+03  -1.3402111088245e+03  -2.2645803880146e+03
+    17     4  -2.0267395163962e+02  -2.4705074660484e+03  -2.1318573111970e+03
+    17     7   3.3625488332047e+03   6.1086180550576e+02   8.5886697970318e+01
+    17    10  -4.9296243635131e+03   3.1998567693668e+03   4.3105510012415e+03
+    17    13   1.3125677072792e+02   1.9892331970948e+00  -1.1157648474577e+02
+    17    16   4.2535577828123e-01   3.2028368803679e+03
+    18     1  -3.1998901093629e+02   1.1295882642108e+02   9.2854051486781e+01
+    18     4   5.6570844919963e+02   9.0479043792157e+01  -2.1135707092017e+02
+    18     7  -1.4115912516579e+02  -2.0254685066391e+01   3.3659085185963e+01
+    18    10  -1.0456031309738e+02  -1.8318318514692e+02   8.4843934247330e+01
+    18    13  -2.7505650816862e+00  -1.8243571929491e+01  -2.5041374541430e+00
+    18    16   1.3358416567269e+01  -4.8734792929653e+01   4.8994272234798e+02
+    19     1  -7.3924525077881e+00  -1.8863736165497e+01  -3.3449646094618e+01
+    19     4  -2.1232007593356e+01   3.6217985231749e+01   3.7357790236374e+01
+    19     7   5.8465565640203e+01  -8.5762037658787e+00  -4.4887020409176e+01
+    19    10  -2.9841105539069e+01  -8.7780453003460e+00   4.0978876267409e+01
+    19    13   1.5614302787767e+00   9.9754855791936e-01  -1.3366892485864e+00
+    19    16  -5.5811415543380e-01   1.8994272603496e+01  -1.2679819780116e+01
+    19    19   1.4373962146081e+01
+    20     1   8.6399884161806e+01  -1.8342992230361e+01  -9.4680571551344e+00
+    20     4  -8.3037704409587e+01  -2.2565273570207e+01   2.7439381427695e+01
+    20     7  -2.3547528381250e+01   3.2000821523025e+00  -1.3586734825050e+00
+    20    10   2.0185348629027e+01   3.7708183648259e+01  -1.6612650790066e+01
+    20    13   1.4330163757815e-01   2.5017254759983e+00   5.4889113175112e-01
+    20    16  -1.9832972768858e+00   6.2311255636312e+00  -5.2720999689421e+01
+    20    19   1.0455539437215e-01   1.6093532611486e+01
+    21     1  -6.0317116032557e+09  -3.5037014077265e+09  -6.7821576379966e+09
+    21     4  -6.9816390089875e+08   1.2098827762067e+10   9.3246936158150e+09
+    21     7   1.7073610541917e+09  -8.0208013572396e+08   7.4787353642083e+08
+    21    10   5.0225144499644e+09  -7.7930462186221e+09  -3.2904095142368e+09
+    21    13   1.8923801923691e+07  -6.8557989080978e+07   6.6673019844920e+07
+    21    16   6.9976459226891e+07  -2.9244271201473e+09   1.5149673409903e+09
+    21    19   3.5960786726031e+08  -1.5458104449052e+08   3.3638410503922e+17
+    22     1   1.2976785498338e+10  -1.8672404546251e+09  -1.5693347253157e+09
+    22     4  -3.9736454200404e+09   7.1090254409406e+09   6.1387397705070e+09
+    22     7  -9.6044143043217e+09  -2.1782485261486e+09  -3.8692185711042e+09
+    22    10   6.0127422602579e+08  -3.0635364601736e+09  -7.0018647408574e+08
+    22    13   1.5649339263749e+07  -5.0581160920456e+07   7.3860315675238e+06
+    22    16   2.7873739015931e+07  -3.7027290905256e+08   1.0203269665011e+08
+    22    19  -9.6733376973892e+07  -1.8317923210595e+08   9.8314178631279e+16
+    22    22   1.8139589138152e+17
+    23     1  -1.3186603953324e+09  -1.7203040859026e+09  -1.6972086782889e+09
+    23     4   6.5057747438662e+09   1.1849545169050e+10   1.0626238454883e+10
+    23     7  -9.7909152521920e+09  -1.1484527158343e+09  -3.7784940361524e+09
+    23    10   4.6038009036571e+09  -8.9807883673175e+09  -5.1505357404405e+09
+    23    13  -1.2352818690532e+08   4.4011721275525e+06   1.0064166729570e+08
+    23    16   3.6366352671581e+07  -4.0556666554657e+09   1.6330671123685e+09
+    23    19   1.0423009272255e+08   1.7737621607542e+07  -1.3452181843711e+17
+    23    22  -1.5793982939128e+16   2.9293702763520e+17
+    24     1   4.5722950681528e+08  -3.0055330239089e+08   1.2789396847323e+09
+    24     4   1.1228802061482e+09   4.0603231889760e+09   2.8666598281556e+09
+    24     7  -3.6163540542627e+09  -2.7809458305664e+08  -1.7103663887028e+09
+    24    10   2.0362443412995e+09  -3.4816753035278e+09  -2.4352331241846e+09
+    24    13  -7.3464737472210e+07  -2.5135889257552e+07   5.4083123681399e+07
+    24    16   2.0481149829714e+06  -1.6752229435555e+09   8.1107340619486e+08
+    24    19  -2.4678937688012e+07  -1.1991234032561e+07  -5.9596721760895e+16
+    24    22  -4.6806851755033e+16   7.8771105034668e+16   8.6675723527858e+16
+    25     1  -6.2147450139821e+08  -1.4827023617717e+09  -2.0921384952656e+09
+    25     4   4.1709648882318e+09   1.2910591186889e+09  -2.5066615957886e+09
+    25     7   2.8166971962225e+09   4.5528249647821e+08  -7.4107497415207e+08
+    25    10  -6.3661875830556e+09  -2.6363925339491e+08   5.3398750652064e+09
+    25    13   1.3099383212552e+08  -3.2240250548646e+07  -1.4919981072869e+08
+    25    16   3.4557495303096e+07   2.9495118926329e+09   1.0625686248206e+09
+    25    19   3.2950758070432e+08  -3.1943146205566e+08  -1.4893226847845e+15
+    25    22   4.4671260905829e+14   8.9138737047709e+15   5.2226196172708e+15
+    25    25   4.7069558912694e+16
+    26     1   3.8509105918593e+08  -6.2479376258124e+09  -7.8072001518466e+09
+    26     4   9.9045035841890e+09   2.0323234006876e+10  -6.6445860220800e+08
+    26     7   2.7354115865134e+09  -2.7454408513392e+09  -1.9680016373827e+09
+    26    10  -1.3025006229888e+10  -1.1329855529727e+10   1.0439660391437e+10
+    26    13   2.9696054062205e+08   7.8563094781918e+07  -2.9231801705063e+08
+    26    16  -6.4005378323446e+07   4.6415443835697e+09  -2.5769645702308e+09
+    26    19   1.5337938280073e+09  -4.7007902909979e+07   5.3217136486484e+16
+    26    22  -1.2236496710858e+16   3.3274605229818e+15  -7.3204829388248e+15
+    26    25   6.5926873187359e+16   7.8455758516239e+17
+    27     1  -1.0070414751945e+08  -1.7443187123898e+08   1.8076095123282e+08
+    27     4   3.1765549973073e+09   1.8775252662030e+08  -3.4584217668189e+09
+    27     7   7.9949911861858e+08   8.5323116479427e+07  -3.8243450753297e+07
+    27    10  -3.8753499684060e+09  -9.8643771859732e+07   3.3159042663392e+09
+    27    13   5.4169057754541e+07   2.1571815328526e+06  -8.6092395945570e+07
+    27    16   3.5819822644840e+05   1.6015632503403e+09  -2.9288253676560e+08
+    27    19  -1.8851799702758e+08   1.7425152611614e+07  -4.5882651658487e+16
+    27    22  -1.7021303777066e+16  -4.3735273016498e+15  -2.4691724813051e+14
+    27    25   3.0432387562908e+15   4.5887846091401e+16   2.8546378535122e+16
+    28     1  -9.0096333801819e+09  -4.1380494756161e+08  -1.7051344572523e+09
+    28     4   9.2898375162050e+09   1.3023332525174e+10   6.9212141881977e+08
+    28     7  -1.3267906408077e+09   1.1801982817830e+08   2.0856972515005e+09
+    28    10   1.0465865047845e+09  -1.2727547405791e+10  -1.0726842130683e+09
+    28    13  -5.4562710080136e+07  -2.5687101885625e+08   3.1468879156290e+06
+    28    16   3.0558960375915e+08  -3.4203271253770e+09   8.0654476574074e+09
+    28    19  -5.6554970692121e+08  -1.3774491021433e+09   4.3740111623627e+16
+    28    22  -6.5205366587403e+16   1.6865687977724e+16  -2.0318789702206e+15
+    28    25  -3.1513049130023e+16   5.3332268221254e+16   2.2712129268939e+16
+    28    28   6.4431389567290e+17
+    29     1  -5.8386606063098e+09  -2.5489466987125e+09  -6.6441075388182e+09
+    29     4   3.1849481793087e+09   3.3147265388025e+09   5.4128800798873e+09
+    29     7   1.2274396307664e+09  -5.7880461183681e+08   1.1900903549208e+09
+    29    10   1.4262727962350e+09  -1.8697522825331e+08   4.1137104010044e+07
+    29    13   6.3817787241078e+07  -1.1356092638310e+07  -5.1548267190745e+06
+    29    16  -2.3692188620747e+06  -3.1312756829611e+08  -7.0012454841548e+08
+    29    19   7.5091418713914e+07  -2.4535188722038e+08  -3.3728500696604e+16
+    29    22  -3.1095976635804e+16   4.6044465389037e+15   1.6392674361161e+15
+    29    25  -8.8695682793018e+15   1.5011256160446e+16  -1.2141482819916e+16
+    29    28  -3.7146581899021e+16   1.9153645734957e+17
+    30     1   1.2141558759929e+09  -7.0361751251453e+08  -3.4607814152893e+08
+    30     4  -3.6982613899707e+09   4.1126656334306e+09   4.6229094789411e+09
+    30     7   4.2579744915550e+09  -9.6314103797830e+08  -6.1040265526032e+09
+    30    10  -1.7738689775772e+09  -2.4459070829372e+09   1.8271952151908e+09
+    30    13   8.6043282908370e+07  -2.1449252560820e+07  -8.0299592894258e+07
+    30    16   3.7968070828638e+07   8.7315690124181e+08   6.3443688347919e+08
+    30    19  -5.2400334873027e+05  -2.7386536778222e+08   4.6824877970520e+15
+    30    22  -1.9753980909500e+16  -4.4380156846224e+15  -1.1599031099067e+15
+    30    25  -7.8533788180805e+15  -3.1948689220219e+16   5.6603925925753e+15
+    30    28  -2.5183271398821e+15   4.7853078222603e+16   1.4619530373716e+17
+    31     1  -6.4111345051052e+09  -2.9539190847714e+09  -4.3774419732550e+09
+    31     4   8.2439768916539e+09   6.1914182130002e+09  -7.7667396520323e+08
+    31     7   1.4607046706108e+09   2.7100536522826e+08  -1.4205790682653e+09
+    31    10  -3.2935470571602e+09  -3.5085044934565e+09   6.5746950067241e+09
+    31    13   1.3179248011145e+08   3.6807808649062e+07  -1.9413069333952e+08
+    31    16  -2.8012692477920e+07   9.5069593032380e+08  -4.7406677763346e+07
+    31    19   1.6123893038615e+08   3.6158271768174e+08  -3.0951572680011e+16
+    31    22  -1.2088659315588e+16  -1.0775411859316e+16   2.1615044859178e+14
+    31    25  -9.7943951607875e+15  -1.1653552539785e+17  -9.3125672154121e+14
+    31    28   8.0604857173877e+16  -9.3181560881304e+15   9.9971799747984e+14
+    31    31   4.2496845355639e+17
+    32     1   6.1390609505654e+09  -4.7136533650261e+09  -7.1205802820091e+09
+    32     4   1.7988729088088e+09   6.6175885885537e+09   4.4837760552466e+09
+    32     7  -4.4587989199590e+09  -2.6525439207455e+09  -1.0548534897461e+09
+    32    10  -3.4791349394155e+09   7.4860869722027e+08   3.6916577165076e+09
+    32    13   1.5274635360081e+08   2.3270919751491e+07  -8.6701600782157e+07
+    32    16  -6.3247163862548e+06   2.5750770629826e+09  -1.3000712352148e+07
+    32    19  -1.0533485506666e+08   2.5770627591882e+08  -1.0718950870398e+16
+    32    22  -2.6944390370091e+15  -1.4853168300637e+15  -3.2862467610587e+15
+    32    25  -2.8051483245613e+15  -5.6935593215441e+16  -5.8668827108752e+15
+    32    28   5.3553077629801e+15   4.4229348232877e+15  -3.9020284303412e+15
+    32    31   1.0978789012120e+17   1.2728000616537e+17
+    33     1  -2.8527967922892e+10   1.6783449381895e+10   2.5846135337439e+10
+    33     4  -1.4732818691589e+09   2.8678202205337e+08   4.4379500280166e+08
+    33     7   1.5102293376859e+09   9.1476204739505e+08   5.4674986300555e+09
+    33    10   2.8491020454364e+10  -1.7984993451346e+10  -3.1757428970296e+10
+    33    13  -9.7032248730851e+08  -2.9075757844951e+08   8.3403013358709e+08
+    33    16   1.6860606276969e+08  -1.9752394759700e+10   5.7160074447888e+09
+    33    19  -2.0828678763162e+08  -1.3112312145760e+09  -1.0747980810855e+16
+    33    22  -1.7366634176823e+16  -1.2997791721062e+17  -1.3944869959180e+16
+    33    25   7.8750337581180e+15  -3.0744391385862e+16  -6.3356296515247e+15
+    33    28   1.3884483282190e+17   8.3444453986957e+13  -1.2993068798631e+16
+    33    31  -9.3340495187485e+16  -6.9595984243158e+16   1.2859998055723e+18
+    34     1  -1.2087648083973e+09   2.7867539823576e+09   3.8481480586348e+09
+    34     4   1.1869824965627e+09  -5.8803437320798e+09  -9.8381369184836e+09
+    34     7  -3.8569587602708e+09   6.1520099156174e+09   1.0640983772326e+10
+    34    10   3.8787410721058e+09  -3.0584201658944e+09  -4.6509949124765e+09
+    34    13  -1.8301430210349e+08  -3.4034471701570e+07   1.3230359341563e+08
+    34    16   3.2681880875883e+07  -3.3301766203735e+09   1.0158795639719e+09
+    34    19  -8.5327871881589e+07  -2.5112683510152e+08  -1.1154632057522e+16
+    34    22  -1.7459297026709e+16  -2.5229893682560e+16  -2.1555246296255e+16
+    34    25   3.1433750256157e+15   4.2348483304278e+15   3.9161438909786e+14
+    34    28   2.2308395443805e+16  -1.7946519152987e+15  -2.4876088961742e+15
+    34    31  -1.5262563337510e+16  -3.0164433683626e+16   2.5980572824619e+17
+    34    34   1.7788726813276e+17
+    35     1   1.8847582534224e+10  -2.0828812719018e+09  -1.7390030806305e+09
+    35     4  -1.7686124446877e+09  -7.8872980828036e+09  -8.9043273213612e+09
+    35     7  -2.0808423414868e+09  -2.0059398260976e+09  -9.3443190199551e+09
+    35    10  -1.4998127748049e+10   1.1976119180807e+10   1.9987649421948e+10
+    35    13   4.1641705826003e+08   2.8769029035201e+07  -5.2951979014712e+08
+    35    16  -1.6290404050183e+07   9.6728660863723e+09  -1.2495445080539e+09
+    35    19   4.6694003072161e+08  -7.7117892718363e+07  -1.0478289163805e+16
+    35    22   2.7931678397229e+16   2.9134608244974e+16   1.8263947120416e+14
+    35    25   1.6451375099126e+16   6.5760337169104e+16   1.1989759142862e+16
+    35    28  -7.1600767767089e+16   1.2557969453790e+16   1.5378713909467e+16
+    35    31   8.9055986247795e+16   2.5793966548246e+16  -6.9353081498499e+17
+    35    34  -1.4368964139512e+17   5.7068634276985e+17
+    36     1  -1.4290125503914e+09   4.9165932668382e+08   2.0056319499466e+08
+    36     4   2.4088761411310e+09   3.1191899629644e+08   2.5188464096634e+08
+    36     7   6.8015284637541e+08  -2.4628946720049e+09  -3.2582420449278e+09
+    36    10  -1.6600164371156e+09   1.6593163490238e+09   2.8057942089667e+09
+    36    13   4.2616817236225e+07  -3.4586633533056e+07  -7.1571045758714e+07
+    36    16   1.9019709821111e+06   9.2865443613185e+08   1.1640561342288e+08
+    36    19   1.2704638412220e+08  -6.2727838628678e+07  -4.8626888168542e+14
+    36    22   1.1655916583080e+14   2.0095625432168e+14   2.3874793202484e+15
+    36    25   3.8722779377059e+15   2.0124726661231e+16   3.0197865814775e+15
+    36    28  -6.5649170939952e+15   2.5232169517638e+15   3.2960786089869e+15
+    36    31   2.4332374671912e+16   1.0841131800916e+16  -1.3423159942317e+17
+    36    34  -8.3992991287980e+16   1.1618679595493e+17   7.7344476273827e+16
+    37     1  -1.9664336253905e+09   1.3198495999909e+09   3.0542417216870e+09
+    37     4  -1.3459466279102e+10   1.4890605955224e+10   2.2932315651665e+10
+    37     7  -9.0433340356479e+09  -2.8250675649039e+09  -3.2551686879533e+09
+    37    10   2.4469233940140e+10  -1.3385387990313e+10  -2.2731388685398e+10
+    37    13  -4.5634099925000e+08   1.9461687546243e+08   5.6942516952156e+08
+    37    16  -1.8738871216369e+08  -1.3227686514782e+10  -5.7466106372310e+09
+    37    19   4.5229671955187e+08   6.2967568976481e+08   1.4022608032450e+15
+    37    22   1.3116125074280e+16  -3.2035505800132e+15   4.1748879653458e+15
+    37    25  -1.3406392250083e+16   5.2258480177643e+16  -1.5479993270103e+16
+    37    28  -2.0414514755093e+17  -1.1161359229598e+17  -6.9430795294320e+16
+    37    31  -2.4603633095703e+16  -9.0118655584854e+14  -1.1426236032406e+16
+    37    34  -5.8656011511889e+15   2.9818825127192e+16   3.1391112855429e+15
+    37    37   7.6196431012064e+17
+    38     1  -1.6026482222128e+09  -7.2092426426474e+08  -1.5690964840915e+09
+    38     4   1.8937654445802e+09   5.7892823424600e+09   7.4046566377756e+09
+    38     7  -3.3934036066469e+09  -3.0547095711965e+09  -2.7953575882749e+09
+    38    10   3.1022863842793e+09  -2.0136485069984e+09  -3.0402025654087e+09
+    38    13  -5.0917078460196e+07   5.0006419071746e+07   7.8134630558944e+07
+    38    16  -3.0049844371232e+07  -1.7353287929504e+09  -9.7582778856782e+08
+    38    19   2.1085350793388e+08   6.8239014325271e+07  -1.7644556291115e+15
+    38    22  -1.7647951750336e+16  -7.4405763200327e+14   1.7231553398888e+15
+    38    25   2.0295657971386e+15  -6.4687105615309e+15  -4.4229199597158e+15
+    38    28  -4.5874209366076e+16  -2.4296729071876e+16  -4.3441363184267e+16
+    38    31  -2.3012660023634e+15  -2.8551696837683e+15  -3.6438565695675e+15
+    38    34  -5.9774304755597e+14  -1.2490958176754e+15   4.5155872331730e+15
+    38    37   1.8594931560419e+17   1.6899209078987e+17
+    39     1   2.0698836108324e+09   4.0862379714711e+09   7.6254601749845e+09
+    39     4  -4.4716720413486e+09  -9.9514130807881e+09  -9.7178176669294e+09
+    39     7   3.1690672841909e+09   1.6713016422499e+09   3.5474535624060e+08
+    39    10  -7.6727885367536e+08   4.1938734670673e+09   1.7376121357030e+09
+    39    13  -4.6815982863456e+07   9.3857786347376e+07  -3.4406451022431e+07
+    39    16  -7.7124909455415e+07   6.0058520175455e+08  -5.3606164374250e+08
+    39    19   5.9212589167273e+08   3.2871410404976e+08  -2.6454804858544e+16
+    39    22  -7.3934528432925e+16   8.4013059870755e+15   2.1791154656373e+15
+    39    25   1.4089352763662e+16   2.7384559002024e+16   7.2639508121787e+15
+    39    28   3.4687016929943e+16  -8.7513692297678e+14   2.9152268426390e+16
+    39    31   2.4910576404724e+16  -9.0570624208111e+14   1.0700089312865e+16
+    39    34   2.5334343729369e+15  -5.9292437198643e+16  -2.3042910805152e+15
+    39    37  -2.7711880585472e+17  -5.9777452407296e+16   3.7323811457736e+17
+    40     1  -2.7956765798635e+09   5.9518389530290e+08   3.7556781439737e+08
+    40     4  -4.5831443750162e+09  -4.6301464736516e+09  -4.2956582842600e+09
+    40     7   7.5322910652341e+09   2.8273624898383e+09   3.6642754127316e+09
+    40    10  -1.5347011035403e+08   1.2076000885115e+09   2.5581505713088e+08
+    40    13   3.1402237365255e+07   8.8326756669375e+06  -4.9234646111026e+06
+    40    16  -2.0699246779604e+07   5.4582891665632e+08  -1.5531663666855e+08
+    40    19   6.8670885347574e+07   6.2824639113661e+06  -1.1806594946986e+15
+    40    22  -1.2930153829739e+16   1.7734001610218e+15  -2.5317639010488e+15
+    40    25   6.0486726698673e+14   1.5640601576810e+16   9.8627030098521e+14
+    40    28   1.0316086802333e+16   5.9532125861085e+15   4.5953110628323e+15
+    40    31   5.4691550078482e+15   6.2783052185748e+15   3.4745728851985e+15
+    40    34  -1.2400288276682e+15  -1.2285939992689e+16  -8.0084817720288e+15
+    40    37  -7.4610310598792e+16  -6.4322751100789e+16   6.5616840926571e+16
+    40    40   7.6313094964482e+16
+    41     1   3.8360644581938e+09   2.5764099553244e+09   5.6238909911246e+09
+    41     4   5.1467010535228e+09  -2.7706320965831e+09  -8.7756344725523e+09
+    41     7  -8.5964883935383e+09   9.4136878130392e+08   2.2946791842225e+09
+    41    10  -3.8627711817837e+08  -7.4714664004417e+08   8.5706429720509e+08
+    41    13  -1.1605800378091e+08   7.7833186107274e+05  -7.2607287736345e+06
+    41    16   7.0547258880378e+06  -1.0722986927070e+09   3.6503193576309e+08
+    41    19  -1.7144863422761e+08   2.2685084129453e+08   1.0771329141538e+16
+    41    22   1.5075291242398e+15   7.7971203798792e+15   1.9050479203912e+15
+    41    25   8.1433061617630e+15   6.0613466536970e+15   3.1128984439574e+15
+    41    28   1.3221860145999e+16   2.8078306350898e+15  -1.6010487974428e+16
+    41    31   1.5419219306859e+16   1.4961609331343e+15   6.4050312193694e+15
+    41    34   4.9013107049852e+15  -2.5454489613656e+16  -3.1955549511709e+15
+    41    37  -6.7984964278701e+16  -2.4912781161376e+16  -5.0965518885259e+16
+    41    40   8.4300261314468e+14   3.1405833931479e+17
+    42     1  -1.1682143203985e+09   5.7406837995692e+08   5.8371219572459e+08
+    42     4  -5.0419906096082e+09  -1.0364588578056e+09  -1.3041323012626e+09
+    42     7   5.8524582050853e+09   6.5913171193907e+08   9.1781519994966e+08
+    42    10   3.5774672492145e+08  -1.9674123409032e+08  -1.9739509441177e+08
+    42    13   2.4426955156188e+07   1.4175363115483e+06   4.6278796317714e+06
+    42    16  -1.4978513770022e+06   1.2339905300403e+08   2.5504805917781e+07
+    42    19   2.3186265678522e+07   1.4394822749514e+07   1.9193694630948e+15
+    42    22   8.1519142245332e+15  -4.5261300395303e+14   1.1976715636551e+15
+    42    25   1.2460027350320e+15   4.9366244774253e+15   6.3163971734927e+14
+    42    28   3.0619500568527e+15  -3.1395094094744e+15  -3.1737783356968e+15
+    42    31   1.4026650730618e+15   3.0688822685114e+15   6.9421815860671e+15
+    42    34  -1.1847433153586e+15  -7.2146996802951e+15  -4.1930413548686e+15
+    42    37   2.0237307040878e+15  -2.0671289159195e+16  -5.8298987542681e+15
+    42    40  -9.9741897965473e+15   3.5596543256778e+16   5.6603957679107e+16
+    43     1  -3.7345308515466e+09   2.3296665547804e+09   3.3944794561940e+09
+    43     4   6.3164689753513e+09   4.4677910837603e+09   4.6455771698475e+09
+    43     7  -7.9289260455241e+09  -5.0488487892748e+09  -1.1033006445163e+07
+    43    10   5.3469879217195e+09  -1.7486088492644e+09  -8.0290236195967e+09
+    43    13  -2.3904216602000e+08   6.4255911918650e+07   2.4589311472751e+08
+    43    16  -8.0878251083181e+07  -3.6549807761223e+09  -1.9187210537155e+09
+    43    19  -4.3306127896715e+08   7.4666612859798e+08  -6.5483638413795e+15
+    43    22   3.2459264686600e+16  -3.1274544984440e+15  -4.3659035253217e+15
+    43    25  -4.7562111883499e+16  -1.2190061701783e+16  -4.1796150838752e+14
+    43    28  -2.2346311304947e+16  -3.6996269788983e+16  -6.1734267564660e+16
+    43    31  -9.3913953436649e+15  -6.0354833957542e+15  -2.6788977069054e+15
+    43    34  -2.4836912207303e+15  -1.2820959767611e+16  -9.3135673815246e+13
+    43    37  -7.1212975619584e+16  -4.0128330864218e+16  -4.2142544266438e+16
+    43    40   2.0995660999529e+15  -1.9860714939663e+17  -2.8128107609986e+16
+    43    43   7.1657954766904e+17
+    44     1   4.8351207395384e+09  -2.0420358022290e+08   3.6568323566660e+08
+    44     4   1.2204377316300e+10   1.4966504156627e+09  -1.5976290583645e+09
+    44     7  -1.6449718600742e+10  -8.1198166535488e+08   1.3785380121253e+09
+    44    10  -5.8977945509632e+08  -4.8046517008489e+08  -1.4659218942734e+08
+    44    13  -1.0804315465482e+08   2.2850460986832e+07   1.9505364838833e+07
+    44    16  -1.0652143821317e+07  -9.3579480781747e+08  -4.1145546816576e+08
+    44    19  -7.4633586383918e+07   2.5598362545320e+08  -1.4337769185331e+15
+    44    22   6.0818316968403e+15   3.2283889304759e+12   1.0064142387131e+15
+    44    25  -8.8434054244730e+15  -4.8708112824561e+15   1.0141951948307e+15
+    44    28   1.5866664060556e+13  -1.4404289888063e+15  -2.1492549850026e+16
+    44    31  -4.2317893716112e+15  -1.4564528099270e+15  -3.5467767715108e+14
+    44    34   8.7203285555434e+14  -3.3976771750663e+15  -4.8334229338352e+14
+    44    37  -1.6278085183998e+16  -2.4931256301105e+16   5.8566878107793e+14
+    44    40  -4.6972846469126e+15  -1.9099125743393e+16  -2.2911299349003e+16
+    44    43   1.0084319432412e+17   8.6798643437878e+16
+    45     1   2.0341770921999e+09  -6.3074134090933e+09  -1.0788839143676e+10
+    45     4  -9.0738093646577e+09   4.0160268728423e+09   1.0187356727514e+10
+    45     7   3.8831288233902e+09   2.8959595522221e+09  -1.4016451865825e+09
+    45    10   3.1565034490677e+09  -6.0457301596616e+08   2.0031276027440e+09
+    45    13   2.0804876932050e+08   6.0297853529505e+07  -9.7103695820174e+07
+    45    16  -1.4138448476666e+07   3.0271106400590e+08  -1.0059408402160e+09
+    45    19   5.7210672311909e+08   2.1348006250486e+08  -4.9169150773947e+15
+    45    22   3.5542385520086e+15  -2.0246586511659e+15  -7.5493007674981e+14
+    45    25  -3.8175585389647e+16  -1.1677501985613e+17   6.5868250780320e+14
+    45    28   1.2273261356291e+15  -8.8425384288553e+15   1.0776346110098e+16
+    45    31   5.7824159861876e+14   7.1064836336108e+15   3.8889775442738e+15
+    45    34  -2.6331092589430e+15   4.9554850732134e+16   5.3073463096293e+15
+    45    37  -1.1848380973358e+16  -3.2598950115122e+15   3.4617862081528e+16
+    45    40  -1.0661328997475e+15   1.6995726821748e+16   3.2604466803461e+15
+    45    43  -5.1784453465632e+16   8.5666724270180e+15   4.2734538329858e+17
+    46     1   1.2347401024242e+10  -4.8237645787010e+09  -6.7456420652546e+09
+    46     4  -2.4790922279360e+10   6.8603548059946e+08   1.2339496071259e+10
+    46     7   1.6283137223164e+10   1.6559151353991e+09  -1.0450400776858e+10
+    46    10  -3.8396159680454e+09   2.4818139627017e+09   4.8565467708535e+09
+    46    13   3.7572590454628e+08   1.0804826519301e+08  -1.9861500905844e+08
+    46    16  -5.1569565347185e+07   5.1338653302633e+09  -1.8066357358597e+09
+    46    19   4.4471032579166e+08   5.3325061168874e+08   2.1045402662565e+14
+    46    22  -1.6692325870428e+16  -2.4737240076862e+15  -7.4784501355217e+15
+    46    25   2.9128979326463e+15  -7.5465901684426e+16   2.8431526242763e+14
+    46    28  -2.4201188092806e+16   1.7676624121943e+14  -1.4780557977300e+16
+    46    31   4.4400856190151e+16  -3.9672896043572e+15  -1.8487999950397e+16
+    46    34   1.7821421590041e+15   3.3422219488735e+16   1.3392036949100e+16
+    46    37  -3.8065450120586e+15  -5.7302077575815e+15   2.8084907015798e+15
+    46    40   8.2019530290715e+15  -5.4779840819322e+15   5.4427908471855e+15
+    46    43   5.0341690277371e+16   8.5083151568497e+15   1.2441433245871e+17
+    46    46   3.3849582942989e+17
+    47     1   7.2417640314147e+09   6.2187629067694e+09   1.2788081698834e+10
+    47     4  -1.3648817898785e+10  -6.6507382871095e+09  -1.5029429392449e+09
+    47     7  -2.4628287972041e+09   7.1252598870025e+08  -2.8426272579574e+09
+    47    10   8.8698826645758e+09  -2.8055060835886e+08  -8.4425115016316e+09
+    47    13  -2.7599561123337e+08  -3.9017766110837e+07   2.1989499842457e+08
+    47    16   1.0435263866005e+07  -4.6007026187038e+09   4.8776465535887e+08
+    47    19  -9.8603747906740e+08   6.5952457205538e+07  -2.0439401568110e+15
+    47    22  -3.8794661216614e+15   8.6610852644762e+15   1.8333018538429e+15
+    47    25  -1.1980000022199e+16  -1.1770124147150e+17   3.6031135381912e+15
+    47    28   1.7926710959552e+16   9.2937274625570e+15   1.8811217848208e+16
+    47    31   3.6389614625252e+16   1.2103046710286e+16  -2.2103232875086e+15
+    47    34  -1.0057107711559e+15  -4.2307216830713e+16  -9.8855324003119e+15
+    47    37  -8.6048331094546e+14  -3.3217894987729e+15  -4.5770879175215e+15
+    47    40  -7.7538296862068e+14  -3.5768065942708e+16  -7.0270842057417e+15
+    47    43  -1.5957748918366e+17  -3.1382928717174e+16  -1.8830432963117e+17
+    47    46  -2.9582742365425e+16   5.1780581781462e+17
+    48     1   1.4349473259880e+09   2.9110535698242e+09   5.3726737448466e+09
+    48     4   3.0177080375570e+09  -3.7285769422003e+09  -7.0924031929051e+09
+    48     7  -6.3009512067983e+09   1.1512355171868e+09   3.3607005812201e+09
+    48    10   1.8482958432538e+09  -3.3371214481024e+08  -1.6409711331617e+09
+    48    13  -1.4720933711176e+08  -1.8299882876333e+07   6.0939691959483e+07
+    48    16   8.9332810636284e+06  -1.8990055448311e+09   2.5237268040054e+08
+    48    19  -2.2587201666707e+08   2.0387314008788e+07   5.3666499802318e+15
+    48    22   1.1218005375667e+16   4.1359322072951e+14   2.7823317795445e+15
+    48    25  -4.3000739501453e+15  -3.2338567215148e+16   7.3278882610820e+14
+    48    28   3.6692236807044e+15  -2.1512600143848e+15   8.9329110325269e+15
+    48    31   1.2034776739833e+16   3.5088795479268e+15   1.0905644015422e+16
+    48    34  -2.6531443398057e+15  -1.3155378354520e+16  -8.8578861958887e+15
+    48    37  -8.2114024662012e+15   4.3234182325163e+15  -5.0640982112569e+14
+    48    40  -7.6448674682289e+15   4.7733613794130e+15  -1.5312708113933e+16
+    48    43  -1.1236309502840e+16  -1.7466272459089e+16  -4.1132061763734e+16
+    48    46  -7.2646109672567e+16   8.9308170343048e+16   1.1630367795263e+17
+    49     1  -3.7206789118973e+09   5.8330039490423e+09   6.6599235512536e+09
+    49     4   1.0601836485814e+10   2.5378946593152e+09   1.3133864231018e+09
+    49     7  -2.2789927818862e+10  -3.9143305019590e+09   1.1599916680463e+10
+    49    10   1.5908770244946e+10  -4.4565681063980e+09  -1.9573226654818e+10
+    49    13  -5.9598894653837e+08  -7.0509306995045e+07   5.9657198845105e+08
+    49    16   7.2394889679028e+07  -1.0396528572963e+10   1.3697289494010e+09
+    49    19  -1.3861868299769e+09  -5.8083308395236e+08  -7.3567463122656e+14
+    49    22  -1.1283389590273e+15  -1.6821841918561e+16   5.7544327460726e+15
+    49    25  -1.4854109932561e+16  -4.5491758701313e+15   5.3863246863805e+15
+    49    28   4.3395051358281e+16   5.7204102989295e+15   2.7086629570190e+16
+    49    31  -4.1514126911819e+17  -9.7629697783026e+16  -9.4239984721587e+16
+    49    34  -1.6066471275824e+16  -9.8035596596837e+16  -2.1139376746072e+16
+    49    37  -2.8298888931882e+15   5.6637061034333e+15  -1.9926528185114e+16
+    49    40  -4.3854386997968e+15   8.0432627819459e+15  -2.9184177872779e+15
+    49    43  -2.3358030182922e+16  -1.1638434078466e+16  -2.3182635071933e+17
+    49    46  -2.6937761348442e+17  -6.5016051174539e+16  -1.6794770214586e+16
+    49    49   1.1060197079023e+18
+    50     1   2.5127033194821e+09  -1.9670901273015e+09  -1.6257900251707e+09
+    50     4  -6.3512311203401e+09   1.4972986653812e+09   5.3786958412725e+09
+    50     7   1.5356047695446e+09   4.6855350704366e+08   2.9021052125807e+08
+    50    10   2.3029230313129e+09   1.2379548776036e+06  -4.0431163373603e+09
+    50    13  -1.0289798392798e+07   3.0109319819511e+07   1.0708833451778e+08
+    50    16   1.2530906744481e+06  -2.2276290212920e+08  -3.0854337304677e+08
+    50    19  -4.6605702468067e+08  -3.6909077083556e+07   3.9419326327569e+14
+    50    22   5.6725895146899e+15  -1.0651378181490e+16  -1.8010647589099e+15
+    50    25  -4.8382262369226e+15   1.2626156495914e+15  -5.8945711656024e+14
+    50    28   5.8994247046682e+15  -2.4182701688772e+15   7.4350545209430e+15
+    50    31  -1.2114968427318e+17  -4.7205374516598e+16  -5.9946931636939e+16
+    50    34  -4.1199324169665e+16  -2.8624073721322e+16  -1.8299129814081e+16
+    50    37  -6.9449074413624e+15   1.1181013414636e+15  -3.7630028151651e+15
+    50    40  -4.1100816654881e+14   8.5999982514681e+14  -2.7488592617722e+15
+    50    43  -1.4494619986595e+16  -4.0494396582590e+15  -5.0738012744718e+16
+    50    46  -1.3805158102203e+17  -5.5876367812315e+15  -2.1821134257042e+16
+    50    49   3.1153275040176e+17   2.3424671721960e+17
+-SOLUTION/NORMAL_EQUATION_MATRIX L
+*
+* -----------------------------------------------------------------------------
+*
+%ENDSNX
